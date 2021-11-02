@@ -44,7 +44,14 @@ namespace MarafonSKills
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MainMenu mainMenu = new MainMenu();
+            MainMenu mainMenu = new MainMenu(2);
+            mainMenu.Show();
+            this.Close();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            MainMenu mainMenu = new MainMenu(3);
             mainMenu.Show();
             this.Close();
         }

@@ -22,10 +22,24 @@ namespace MarafonSKills.Windows
     {
         DispatcherTimer dispatcherTimer = new DispatcherTimer();
 
-        public MainMenu()
+        public MainMenu(int num)
         {
             InitializeComponent();
-            MainFrame.Navigate(new RunnerSponsor());
+            switch (num)
+            {
+                case 1:
+                    MainFrame.Navigate(new RunnerSponsor(this));
+                    break;
+                case 2:
+                    MainFrame.Navigate(new RunnerSponsor(this));
+                    break;
+                case 3:
+                    MainFrame.Navigate(new RunnerSponsor(this));
+                    break;
+                default:
+                    break;
+            }
+            MainFrame.Navigate(new RunnerSponsor(this));
 
             dispatcherTimer.Interval = TimeSpan.FromSeconds(1);
             dispatcherTimer.Tick += tick;
@@ -37,6 +51,13 @@ namespace MarafonSKills.Windows
             DateTime curDate = DateTime.Now;
             TimeSpan remaningTIme = MainWindow.dateOfEvent - curDate;
             EventTB.Text = string.Format("{0} days, {1} hours and {2} minutes {3} seconds until marathin starts!", remaningTIme.Days, remaningTIme.Hours, remaningTIme.Minutes, remaningTIme.Seconds); 
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
         }
     }
 }

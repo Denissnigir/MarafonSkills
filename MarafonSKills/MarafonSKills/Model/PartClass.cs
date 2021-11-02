@@ -12,7 +12,7 @@ namespace MarafonSKills.Model
         {
             get
             {
-                string fullname = Runner.User.FirstName + " " + Runner.User.LastName + " - " + Runner.CountryCode;
+                string fullname = Runner.User.FirstName + " " + Runner.User.LastName + " - " + RegistrationEvent.FirstOrDefault().BibNumber + "(" + Runner.CountryCode + ")";
                 return fullname;
             }
         }

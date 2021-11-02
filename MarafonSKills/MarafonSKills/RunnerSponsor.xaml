@@ -55,25 +55,25 @@
                     </Grid.RowDefinitions>
 
                     <TextBlock Text="Ваше имя:" HorizontalAlignment="Right" Style="{StaticResource MainText}" FontSize="18" Margin="0, 0, 5, 0"/>
-                    <TextBox Grid.Column="1" Height="25" Margin="10, 0 , 20, 0"/>
+                    <TextBox x:Name="NameTB" Grid.Column="1" Height="25" Margin="10, 0 , 20, 0"/>
 
                     <TextBlock Style="{StaticResource MainText}" Grid.Row="1" Text="Бегун:" HorizontalAlignment="Right" FontSize="18" Margin="0, 0, 5, 0"/>
-                    <ComboBox Grid.Column="1" ItemsSource="{Binding FullName}" SelectedIndex="0" Foreground="Black" Name="RunnerName" Grid.Row="1" Height="25" Margin="10, 0 , 20, 0"/>
+                    <ComboBox Grid.Column="1" DisplayMemberPath="FullName" SelectionChanged="RunnerName_SelectionChanged" SelectedIndex="-1" TextBlock.Foreground="Black" Name="RunnerName" Grid.Row="1" Height="25" Margin="10, 0 , 20, 0"/>
 
                     <TextBlock Grid.Row="2" Text="Карта:" Style="{StaticResource MainText}" HorizontalAlignment="Right" FontSize="18" Margin="0, 0, 5, 0"/>
-                    <TextBox Grid.Column="1" Grid.Row="2" Height="25" Margin="10, 0 , 20, 0"/>
+                    <TextBox x:Name="CardHolderTB" Grid.Column="1" Grid.Row="2" Height="25" Margin="10, 0 , 20, 0"/>
 
                     <TextBlock Grid.Row="3" Text="Номер карты #:" Style="{StaticResource MainText}" HorizontalAlignment="Right" FontSize="18" Margin="0, 0, 5, 0"/>
-                    <TextBox Grid.Column="1" Grid.Row="3" Height="25" Margin="10, 0 , 20, 0"/>
+                    <TextBox Name="CardNumTB" MaxLength="16" Grid.Column="1" Grid.Row="3" Height="25" Margin="10, 0 , 20, 0"/>
 
                     <TextBlock Grid.Row="4" Text="Срок действия:" Style="{StaticResource MainText}" HorizontalAlignment="Right" FontSize="18" Margin="0, 0, 5, 0"/>
                     <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="1">
-                        <TextBox Grid.Column="1" Grid.Row="4" Height="25" Width="50" Margin="10, 0 , 20, 0"/>
-                        <TextBox Grid.Column="1" Grid.Row="4" Height="25" Width="70" Margin="10, 0 , 20, 0"/>
+                        <TextBox x:Name="CardMonthTB" MaxLength="2" Grid.Column="1" Grid.Row="4" Height="25" Width="50" Margin="10, 0 , 20, 0"/>
+                        <TextBox x:Name="CardYearTB" MaxLength="4" Grid.Column="1" Grid.Row="4" Height="25" Width="70" Margin="10, 0 , 20, 0"/>
                     </StackPanel>
 
                     <TextBlock Grid.Row="5" Text="CVC:" Style="{StaticResource MainText}" HorizontalAlignment="Right" FontSize="18" Margin="0, 0, 5, 0"/>
-                    <TextBox Grid.Column="1" Grid.Row="5" Height="25" Margin="10, 0 , 20, 0"/>
+                    <TextBox x:Name="CardCVCTB" MaxLength="3" Grid.Column="1" Grid.Row="5" Height="25" Margin="10, 0 , 20, 0"/>
                 </Grid>
             </Grid>
 
@@ -95,8 +95,8 @@
                             <ColumnDefinition/>
                             <ColumnDefinition Width="0.3*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Name="OrganizationTB" FontSize="20"/>
-                        <TextBlock Text="(!)" Grid.Column="1" FontSize="24" Foreground="Yellow"/>
+                        <TextBlock Name="OrganizationTB" HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Center"/>
+                        <TextBlock Text="(!)" Grid.Column="1" FontSize="24" Foreground="Yellow" VerticalAlignment="Center"/>
                     </Grid>
                 </Grid>
 
@@ -107,7 +107,7 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <TextBlock Text="Сумма пожертвования" Style="{StaticResource Header}" FontSize="25"/>
-                    <TextBlock Text="0$" Style="{StaticResource Header}" FontSize="40" Grid.Row="1"/>
+                    <TextBlock Text="0" Name="CharityAmount" Style="{StaticResource Header}" FontSize="40" Grid.Row="1"/>
                     <Grid Grid.Row="2">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
@@ -115,9 +115,9 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
-                        <Button Content="-" FontSize="18" Width="40" HorizontalAlignment="Right" Height="30"/>
-                        <TextBox Grid.Column="1" Height="30" Width="100"/>
-                        <Button Grid.Column="2" Content="-" FontSize="18" Width="40" HorizontalAlignment="Left" Height="30"/>
+                        <Button Click="Button_Click" Content="-" FontSize="18" Width="40" HorizontalAlignment="Right" Height="30"/>
+                        <TextBox Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Name="AddMinusCharityAmount" Height="30" Width="100"/>
+                        <Button Click="Button_Click_2" Grid.Column="2" Content="+" FontSize="18" Width="40" HorizontalAlignment="Left" Height="30"/>
                     </Grid>
                 </Grid>
                 <Grid Grid.Row="2">
@@ -126,8 +126,8 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
-                    <Button Width="130" Height="40" Content="Заплатить" FontSize="20"/>
-                    <Button Grid.Column="1" Width="130" Height="40" Content="Отмена" FontSize="20"/>
+                    <Button Width="130" Height="40" Content="Заплатить" FontSize="20" Click="Button_Click_3"/>
+                    <Button Grid.Column="1" Width="130" Height="40" Content="Отмена" FontSize="20" Click="Button_Click_1"/>
                 </Grid>
             </Grid>
             

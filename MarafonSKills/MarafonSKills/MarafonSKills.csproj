@@ -64,13 +64,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Additionalnfo.xaml.cs">
+      <DependentUpon>Additionalnfo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\PartClass.cs" />
     <Compile Include="RunnerSponsor.xaml.cs">
       <DependentUpon>RunnerSponsor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ThanksSponsor.xaml.cs">
+      <DependentUpon>ThanksSponsor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
+    <Page Include="Additionalnfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -84,6 +94,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="RunnerSponsor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ThanksSponsor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
