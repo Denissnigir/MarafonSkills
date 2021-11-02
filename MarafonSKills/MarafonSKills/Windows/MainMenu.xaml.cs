@@ -34,12 +34,11 @@ namespace MarafonSKills.Windows
                     MainFrame.Navigate(new RunnerSponsor(this));
                     break;
                 case 3:
-                    MainFrame.Navigate(new RunnerSponsor(this));
+                    MainFrame.Navigate(new Additionalnfo(this));
                     break;
                 default:
                     break;
             }
-            MainFrame.Navigate(new RunnerSponsor(this));
 
             dispatcherTimer.Interval = TimeSpan.FromSeconds(1);
             dispatcherTimer.Tick += tick;

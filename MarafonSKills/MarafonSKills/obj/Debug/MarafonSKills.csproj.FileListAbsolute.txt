@@ -26,3 +26,7 @@ C:\Repos\MarafonSkills\MarafonSKills\MarafonSKills\obj\Debug\RunnerSponsor.baml
 C:\Repos\MarafonSkills\MarafonSKills\MarafonSKills\obj\Debug\Windows\MainMenu.baml
 C:\Repos\MarafonSkills\MarafonSKills\MarafonSKills\obj\Debug\ThanksSponsor.g.cs
 C:\Repos\MarafonSkills\MarafonSKills\MarafonSKills\obj\Debug\ThanksSponsor.baml
+C:\Repos\MarafonSkills\MarafonSKills\MarafonSKills\obj\Debug\Additionalnfo.g.cs
+C:\Repos\MarafonSkills\MarafonSKills\MarafonSKills\obj\Debug\Additionalnfo.baml
+C:\Repos\MarafonSkills\MarafonSKills\MarafonSKills\obj\Debug\CharityList.g.cs
+C:\Repos\MarafonSkills\MarafonSKills\MarafonSKills\obj\Debug\CharityList.baml

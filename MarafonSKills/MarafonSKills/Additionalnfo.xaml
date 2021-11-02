@@ -28,9 +28,13 @@
             <Button Height="75" Width="300" Content="Marathon Skills" FontSize="24"/>
             <Button  Grid.Row="1" Height="75" Width="300" Content="Предыдущие результаты" FontSize="24"/>
             <Button  Grid.Row="2" Height="75" Width="300" Content="BMI калькулятор" FontSize="24"/>
-            <Button Grid.Column="1" Height="75" Width="300" Content="Насколько долгий марафон" FontSize="24"/>
-            <Button Grid.Column="1" Grid.Row="1" Height="75" Width="300" Content="Marathon Skills" FontSize="24"/>
-            <Button Grid.Column="1" Grid.Row="2" Height="75" Width="300" Content="Marathon Skills" FontSize="24"/>
+            <Button Grid.Column="1" Height="75" Width="300">
+                <TextBlock Text="Насколько долгий марафон" FontSize="24" TextWrapping="Wrap" TextAlignment="Center"/>
+            </Button>
+            <Button Grid.Column="1" Click="Button_Click" Grid.Row="1" Height="75" Width="300">
+                <TextBlock Text="Список благотворительных организаций" FontSize="22" TextWrapping="Wrap" TextAlignment="Center"/>
+            </Button>
+            <Button Grid.Column="1" Grid.Row="2" Height="75" Width="300" Content="BMR калькулятор" FontSize="24"/>
         </Grid>
     </Grid>
 </Page>

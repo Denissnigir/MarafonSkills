@@ -12,26 +12,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using MarafonSKills.Windows;
+using MarafonSKills.Model;
 
 namespace MarafonSKills
 {
     /// <summary>
-    /// Логика взаимодействия для Additionalnfo.xaml
+    /// Логика взаимодействия для CharityList.xaml
     /// </summary>
-    public partial class Additionalnfo : Page
+    public partial class CharityList : Page
     {
-        private MainMenu curWin { get; }
-
-        public Additionalnfo(MainMenu mainMenu)
+        public CharityList()
         {
             InitializeComponent();
-            curWin = mainMenu;
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            curWin.MainFrame.Navigate(new CharityList());
+            CharityListBox.ItemsSource = Context._con.Charity.ToList();
         }
     }
 }

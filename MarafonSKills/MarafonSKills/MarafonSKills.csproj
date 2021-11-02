@@ -67,6 +67,9 @@
     <Compile Include="Additionalnfo.xaml.cs">
       <DependentUpon>Additionalnfo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CharityList.xaml.cs">
+      <DependentUpon>CharityList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\PartClass.cs" />
     <Compile Include="RunnerSponsor.xaml.cs">
       <DependentUpon>RunnerSponsor.xaml</DependentUpon>
@@ -78,6 +81,10 @@
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
     <Page Include="Additionalnfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CharityList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -217,6 +224,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="arise-logo.png" />
+    <Resource Include="aves-do-brazil-logo.png" />
+    <Resource Include="clara-santos-oliveira-institute-logo.png" />
+    <Resource Include="conquer-cancer-brazil.png" />
+    <Resource Include="diabetes-brazil-logo.png" />
+    <Resource Include="heart-health-sao-paulo-logo.png" />
+    <Resource Include="human-rights-centre-logo.png" />
     <Content Include="Model\MarathonDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MarathonDB.Context.cs</LastGenOutput>
@@ -227,6 +241,13 @@
       <DependentUpon>MarathonDB.edmx</DependentUpon>
       <LastGenOutput>MarathonDB.cs</LastGenOutput>
     </Content>
+    <Resource Include="oxfam-international-logo.png" />
+    <Resource Include="querstadtein-logo.png" />
+    <Resource Include="save-the-children-fund-logo.png" />
+    <Resource Include="stay-pumped-logo.png" />
+    <Resource Include="the-red-cross-logo.png" />
+    <Resource Include="upbeat-logo.png" />
+    <Resource Include="wwsm-rescue-logo.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
