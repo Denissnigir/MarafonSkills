@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using MarafonSKills.Model;
+using MarafonSKills.Windows;
 
 namespace MarafonSKills
 {
@@ -39,6 +40,13 @@ namespace MarafonSKills
             var curDate = DateTime.Now;
             TimeSpan timeSpan = dateOfEvent - curDate;
             EventTB.Text = string.Format("{0} days, {1} hours and {2} minutes {3} seconds untill the Marafon starts!", timeSpan.Days.ToString(), timeSpan.Hours.ToString(), timeSpan.Minutes.ToString(), timeSpan.Seconds.ToString());
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainMenu mainMenu = new MainMenu();
+            mainMenu.Show();
+            this.Close();
         }
     }
 }

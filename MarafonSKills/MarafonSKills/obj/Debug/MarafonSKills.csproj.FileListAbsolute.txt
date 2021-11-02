@@ -20,3 +20,7 @@ C:\Repos\MarafonSkills\MarafonSKills\MarafonSKills\obj\Debug\MarafonSKills.cspro
 C:\Repos\MarafonSkills\MarafonSKills\MarafonSKills\obj\Debug\MarafonSKills.csproj.CoreCompileInputs.cache
 C:\Repos\MarafonSkills\MarafonSKills\MarafonSKills\obj\Debug\MarafonSKills.exe
 C:\Repos\MarafonSkills\MarafonSKills\MarafonSKills\obj\Debug\MarafonSKills.pdb
+C:\Repos\MarafonSkills\MarafonSKills\MarafonSKills\obj\Debug\RunnerSponsor.g.cs
+C:\Repos\MarafonSkills\MarafonSKills\MarafonSKills\obj\Debug\Windows\MainMenu.g.cs
+C:\Repos\MarafonSkills\MarafonSKills\MarafonSKills\obj\Debug\RunnerSponsor.baml
+C:\Repos\MarafonSkills\MarafonSKills\MarafonSKills\obj\Debug\Windows\MainMenu.baml
