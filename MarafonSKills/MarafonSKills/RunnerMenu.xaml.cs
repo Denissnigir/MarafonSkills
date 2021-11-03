@@ -17,31 +17,19 @@ using MarafonSKills.Windows;
 namespace MarafonSKills
 {
     /// <summary>
-    /// Логика взаимодействия для Additionalnfo.xaml
+    /// Логика взаимодействия для RunnerMenu.xaml
     /// </summary>
-    public partial class Additionalnfo : Page
+    public partial class RunnerMenu : Page
     {
-        private MainMenu curWin { get; }
-
-        public Additionalnfo(MainMenu mainMenu)
+        public RunnerMenu(MainMenu mainMenu)
         {
             InitializeComponent();
-            curWin = mainMenu;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            curWin.MainFrame.Navigate(new CharityList());
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-
+            Information information = new Information();
+            information.ShowDialog();
         }
     }
 }

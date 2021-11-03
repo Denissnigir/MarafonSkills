@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Repos\MarafonSkills\MarafonSKills\MarafonSKills\App.xaml
-6-451302651
+12-652964589
 2-2062032482
-36178467998
+42700733243
 18-1202882625
-Additionalnfo.xaml;CharityList.xaml;MainWindow.xaml;RunnerSponsor.xaml;ThanksSponsor.xaml;Windows\MainMenu.xaml;
+Additionalnfo.xaml;AdminMenu.xaml;AuthMenu.xaml;CharityList.xaml;CoordMenu.xaml;MainWindow.xaml;RunnerMenu.xaml;RunnerSponsor.xaml;RunnerValidate.xaml;ThanksSponsor.xaml;Windows\Information.xaml;Windows\MainMenu.xaml;
 
 True
 

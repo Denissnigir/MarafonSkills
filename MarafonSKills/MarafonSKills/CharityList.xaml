@@ -11,7 +11,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition Width="11*"/>
+            <ColumnDefinition Width="30*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -38,16 +38,16 @@
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
-                            <Image Source="{Binding CharityLogo}" Height="75" VerticalAlignment="Top"/>
+                            <Image Source="{Binding CharityLogo}" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100"/>
 
                             <Grid Grid.Column="1" Margin="10, 0, 0, 0">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="0.8*"/>
+                                    <RowDefinition Height="0.7*"/>
                                     <RowDefinition/>
                                 </Grid.RowDefinitions>
 
                                 <TextBlock Text="{Binding CharityName}" FontSize="24"/>
-                                <TextBlock Grid.Row="1" Text="{Binding CharityDescription}" Width="450" FontSize="16" TextWrapping="Wrap" TextAlignment="Left"/>
+                                <TextBlock Grid.Row="1" Text="{Binding CharityDescription}" Width="540" FontSize="16" TextWrapping="Wrap" TextAlignment="Left"/>
                             </Grid>
                         </Grid>
                     </DataTemplate>

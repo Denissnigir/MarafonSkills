@@ -30,3 +30,15 @@ C:\Repos\MarafonSkills\MarafonSKills\MarafonSKills\obj\Debug\Additionalnfo.g.cs
 C:\Repos\MarafonSkills\MarafonSKills\MarafonSKills\obj\Debug\Additionalnfo.baml
 C:\Repos\MarafonSkills\MarafonSKills\MarafonSKills\obj\Debug\CharityList.g.cs
 C:\Repos\MarafonSkills\MarafonSKills\MarafonSKills\obj\Debug\CharityList.baml
+C:\Repos\MarafonSkills\MarafonSKills\MarafonSKills\obj\Debug\AuthMenu.g.cs
+C:\Repos\MarafonSkills\MarafonSKills\MarafonSKills\obj\Debug\AuthMenu.baml
+C:\Repos\MarafonSkills\MarafonSKills\MarafonSKills\obj\Debug\RunnerMenu.g.cs
+C:\Repos\MarafonSkills\MarafonSKills\MarafonSKills\obj\Debug\RunnerMenu.baml
+C:\Repos\MarafonSkills\MarafonSKills\MarafonSKills\obj\Debug\CoordMenu.g.cs
+C:\Repos\MarafonSkills\MarafonSKills\MarafonSKills\obj\Debug\CoordMenu.baml
+C:\Repos\MarafonSkills\MarafonSKills\MarafonSKills\obj\Debug\AdminMenu.g.cs
+C:\Repos\MarafonSkills\MarafonSKills\MarafonSKills\obj\Debug\AdminMenu.baml
+C:\Repos\MarafonSkills\MarafonSKills\MarafonSKills\obj\Debug\Windows\Information.g.cs
+C:\Repos\MarafonSkills\MarafonSKills\MarafonSKills\obj\Debug\Windows\Information.baml
+C:\Repos\MarafonSkills\MarafonSKills\MarafonSKills\obj\Debug\RunnerValidate.g.cs
+C:\Repos\MarafonSkills\MarafonSKills\MarafonSKills\obj\Debug\RunnerValidate.baml

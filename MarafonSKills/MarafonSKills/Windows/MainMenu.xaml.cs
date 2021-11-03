@@ -28,13 +28,16 @@ namespace MarafonSKills.Windows
             switch (num)
             {
                 case 1:
-                    MainFrame.Navigate(new RunnerSponsor(this));
+                    MainFrame.Navigate(new RunnerValidate(this));
                     break;
                 case 2:
                     MainFrame.Navigate(new RunnerSponsor(this));
                     break;
                 case 3:
                     MainFrame.Navigate(new Additionalnfo(this));
+                    break;
+                case 4:
+                    MainFrame.Navigate(new AuthMenu(this));
                     break;
                 default:
                     break;

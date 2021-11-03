@@ -67,15 +67,33 @@
     <Compile Include="Additionalnfo.xaml.cs">
       <DependentUpon>Additionalnfo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AdminMenu.xaml.cs">
+      <DependentUpon>AdminMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AuthMenu.xaml.cs">
+      <DependentUpon>AuthMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CharityList.xaml.cs">
       <DependentUpon>CharityList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CoordMenu.xaml.cs">
+      <DependentUpon>CoordMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\PartClass.cs" />
+    <Compile Include="RunnerMenu.xaml.cs">
+      <DependentUpon>RunnerMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RunnerSponsor.xaml.cs">
       <DependentUpon>RunnerSponsor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RunnerValidate.xaml.cs">
+      <DependentUpon>RunnerValidate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ThanksSponsor.xaml.cs">
       <DependentUpon>ThanksSponsor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Information.xaml.cs">
+      <DependentUpon>Information.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
@@ -84,7 +102,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AdminMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AuthMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CharityList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CoordMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -100,11 +130,23 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="RunnerMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="RunnerSponsor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="RunnerValidate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ThanksSponsor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Information.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

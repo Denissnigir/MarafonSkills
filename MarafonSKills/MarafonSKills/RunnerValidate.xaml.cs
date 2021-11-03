@@ -17,13 +17,12 @@ using MarafonSKills.Windows;
 namespace MarafonSKills
 {
     /// <summary>
-    /// Логика взаимодействия для Additionalnfo.xaml
+    /// Логика взаимодействия для RunnerValidate.xaml
     /// </summary>
-    public partial class Additionalnfo : Page
+    public partial class RunnerValidate : Page
     {
         private MainMenu curWin { get; }
-
-        public Additionalnfo(MainMenu mainMenu)
+        public RunnerValidate(MainMenu mainMenu)
         {
             InitializeComponent();
             curWin = mainMenu;
@@ -31,17 +30,12 @@ namespace MarafonSKills
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            curWin.MainFrame.Navigate(new CharityList());
+            curWin.MainFrame.Navigate(new AuthMenu(curWin));
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-
+            curWin.MainFrame.Navigate(new AuthMenu(curWin));
         }
     }
 }

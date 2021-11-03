@@ -55,5 +55,19 @@ namespace MarafonSKills
             mainMenu.Show();
             this.Close();
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            MainMenu mainMenu = new MainMenu(4);
+            mainMenu.Show();
+            this.Close();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            MainMenu mainMenu = new MainMenu(1);
+            mainMenu.Show();
+            this.Close();
+        }
     }
 }
