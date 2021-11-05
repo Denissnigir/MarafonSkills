@@ -79,7 +79,83 @@
     <Compile Include="CoordMenu.xaml.cs">
       <DependentUpon>CoordMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\Charity.cs">
+      <DependentUpon>MarathonSkills.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Country.cs">
+      <DependentUpon>MarathonSkills.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Employee.cs">
+      <DependentUpon>MarathonSkills.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Event.cs">
+      <DependentUpon>MarathonSkills.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EventType.cs">
+      <DependentUpon>MarathonSkills.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Gender.cs">
+      <DependentUpon>MarathonSkills.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Marathon.cs">
+      <DependentUpon>MarathonSkills.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MarathonSkills.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MarathonSkills.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MarathonSkills.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MarathonSkills.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MarathonSkills.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MarathonSkills.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Model\PartClass.cs" />
+    <Compile Include="Model\Position.cs">
+      <DependentUpon>MarathonSkills.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\RaceKitOption.cs">
+      <DependentUpon>MarathonSkills.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Registration.cs">
+      <DependentUpon>MarathonSkills.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\RegistrationEvent.cs">
+      <DependentUpon>MarathonSkills.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\RegistrationStatus.cs">
+      <DependentUpon>MarathonSkills.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Role.cs">
+      <DependentUpon>MarathonSkills.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Runner.cs">
+      <DependentUpon>MarathonSkills.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\RunnerPartClass.cs" />
+    <Compile Include="Model\Sponsorship.cs">
+      <DependentUpon>MarathonSkills.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\sysdiagrams.cs">
+      <DependentUpon>MarathonSkills.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Timesheet.cs">
+      <DependentUpon>MarathonSkills.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\User.cs">
+      <DependentUpon>MarathonSkills.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Volunteer.cs">
+      <DependentUpon>MarathonSkills.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterRunner.xaml.cs">
+      <DependentUpon>RegisterRunner.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RunnerMenu.xaml.cs">
       <DependentUpon>RunnerMenu.xaml</DependentUpon>
     </Compile>
@@ -130,6 +206,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="RegisterRunner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="RunnerMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -156,82 +236,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Charity.cs">
-      <DependentUpon>MarathonDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\Context.cs" />
-    <Compile Include="Model\Country.cs">
-      <DependentUpon>MarathonDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Employee.cs">
-      <DependentUpon>MarathonDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Event.cs">
-      <DependentUpon>MarathonDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\EventType.cs">
-      <DependentUpon>MarathonDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Gender.cs">
-      <DependentUpon>MarathonDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Marathon.cs">
-      <DependentUpon>MarathonDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\MarathonDB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MarathonDB.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\MarathonDB.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MarathonDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\MarathonDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MarathonDB.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Model\PayPeriod.cs">
-      <DependentUpon>MarathonDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\PayRate.cs">
-      <DependentUpon>MarathonDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Position.cs">
-      <DependentUpon>MarathonDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\RaceKitOption.cs">
-      <DependentUpon>MarathonDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Registration.cs">
-      <DependentUpon>MarathonDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\RegistrationEvent.cs">
-      <DependentUpon>MarathonDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\RegistrationStatus.cs">
-      <DependentUpon>MarathonDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Role.cs">
-      <DependentUpon>MarathonDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Runner.cs">
-      <DependentUpon>MarathonDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Sponsorship.cs">
-      <DependentUpon>MarathonDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\sysdiagrams.cs">
-      <DependentUpon>MarathonDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\User.cs">
-      <DependentUpon>MarathonDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Volunteer.cs">
-      <DependentUpon>MarathonDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -249,12 +254,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Model\MarathonDB.edmx">
+    <EntityDeploy Include="Model\MarathonSkills.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MarathonDB.Designer.cs</LastGenOutput>
+      <LastGenOutput>MarathonSkills.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\MarathonDB.edmx.diagram">
-      <DependentUpon>MarathonDB.edmx</DependentUpon>
+    <None Include="Model\MarathonSkills.edmx.diagram">
+      <DependentUpon>MarathonSkills.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -273,16 +278,6 @@
     <Resource Include="diabetes-brazil-logo.png" />
     <Resource Include="heart-health-sao-paulo-logo.png" />
     <Resource Include="human-rights-centre-logo.png" />
-    <Content Include="Model\MarathonDB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>MarathonDB.Context.cs</LastGenOutput>
-      <DependentUpon>MarathonDB.edmx</DependentUpon>
-    </Content>
-    <Content Include="Model\MarathonDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MarathonDB.edmx</DependentUpon>
-      <LastGenOutput>MarathonDB.cs</LastGenOutput>
-    </Content>
     <Resource Include="oxfam-international-logo.png" />
     <Resource Include="querstadtein-logo.png" />
     <Resource Include="save-the-children-fund-logo.png" />
@@ -294,6 +289,17 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Model\MarathonSkills.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MarathonSkills.edmx</DependentUpon>
+      <LastGenOutput>MarathonSkills.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\MarathonSkills.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MarathonSkills.edmx</DependentUpon>
+      <LastGenOutput>MarathonSkills.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

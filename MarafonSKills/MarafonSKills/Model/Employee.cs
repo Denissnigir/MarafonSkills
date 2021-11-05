@@ -14,19 +14,24 @@ namespace MarafonSKills.Model
     
     public partial class Employee
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Employee()
+        {
+            this.Timesheet = new HashSet<Timesheet>();
+        }
+    
         public int EmployeeId { get; set; }
         public string EmployeeFIrstName { get; set; }
         public string EmployeeSecondName { get; set; }
         public System.DateTime EmployeeBirthDate { get; set; }
         public string EmployeeGenderName { get; set; }
-        public Nullable<int> EmployeePositionId { get; set; }
-        public Nullable<int> EmployeePayPeriodId { get; set; }
-        public Nullable<int> EmployeePayRate { get; set; }
+        public short EmployeePositionId { get; set; }
         public string EmployeeEmail { get; set; }
+        public string EmployeeComments { get; set; }
     
         public virtual Gender Gender { get; set; }
-        public virtual PayPeriod PayPeriod { get; set; }
-        public virtual PayRate PayRate { get; set; }
         public virtual Position Position { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Timesheet> Timesheet { get; set; }
     }
 }

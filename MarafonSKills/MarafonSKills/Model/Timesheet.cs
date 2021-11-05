@@ -12,18 +12,14 @@ namespace MarafonSKills.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class PayPeriod
+    public partial class Timesheet
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public PayPeriod()
-        {
-            this.Employee = new HashSet<Employee>();
-        }
+        public int TimesheetId { get; set; }
+        public int EmployeeId { get; set; }
+        public Nullable<System.DateTime> StartDateTime { get; set; }
+        public Nullable<System.DateTime> EndDateTime { get; set; }
+        public Nullable<decimal> PayAmount { get; set; }
     
-        public int PayPeriodId { get; set; }
-        public string PayPeriodName { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Employee> Employee { get; set; }
+        public virtual Employee Employee { get; set; }
     }
 }

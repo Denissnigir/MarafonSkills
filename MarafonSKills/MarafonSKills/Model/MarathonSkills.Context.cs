@@ -32,8 +32,6 @@ namespace MarafonSKills.Model
         public virtual DbSet<EventType> EventType { get; set; }
         public virtual DbSet<Gender> Gender { get; set; }
         public virtual DbSet<Marathon> Marathon { get; set; }
-        public virtual DbSet<PayPeriod> PayPeriod { get; set; }
-        public virtual DbSet<PayRate> PayRate { get; set; }
         public virtual DbSet<Position> Position { get; set; }
         public virtual DbSet<RaceKitOption> RaceKitOption { get; set; }
         public virtual DbSet<Registration> Registration { get; set; }
@@ -43,6 +41,7 @@ namespace MarafonSKills.Model
         public virtual DbSet<Runner> Runner { get; set; }
         public virtual DbSet<Sponsorship> Sponsorship { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<Timesheet> Timesheet { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Volunteer> Volunteer { get; set; }
     }

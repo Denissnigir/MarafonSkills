@@ -37,5 +37,10 @@ namespace MarafonSKills
         {
             curWin.MainFrame.Navigate(new AuthMenu(curWin));
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            curWin.MainFrame.Navigate(new RegisterRunner(curWin));
+        }
     }
 }

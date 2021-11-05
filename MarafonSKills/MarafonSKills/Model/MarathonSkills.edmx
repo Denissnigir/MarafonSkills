@@ -26,15 +26,14 @@
           <Key>
             <PropertyRef Name="EmployeeId" />
           </Key>
-          <Property Name="EmployeeId" Type="int" Nullable="false" />
-          <Property Name="EmployeeFIrstName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="EmployeeSecondName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="EmployeeBirthDate" Type="date" Nullable="false" />
-          <Property Name="EmployeeGenderName" Type="nvarchar" MaxLength="10" />
-          <Property Name="EmployeePositionId" Type="int" />
-          <Property Name="EmployeePayPeriodId" Type="int" />
-          <Property Name="EmployeePayRate" Type="int" />
-          <Property Name="EmployeeEmail" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="EmployeeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeFIrstName" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="EmployeeSecondName" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="EmployeeBirthDate" Type="datetime" Nullable="false" />
+          <Property Name="EmployeeGenderName" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="EmployeePositionId" Type="smallint" Nullable="false" />
+          <Property Name="EmployeeEmail" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="EmployeeComments" Type="varchar" MaxLength="2000" />
         </EntityType>
         <EntityType Name="Event">
           <Key>
@@ -59,7 +58,7 @@
           <Key>
             <PropertyRef Name="Gender" />
           </Key>
-          <Property Name="Gender" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Gender" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="Marathon">
           <Key>
@@ -71,27 +70,15 @@
           <Property Name="CountryCode" Type="nchar" MaxLength="3" Nullable="false" />
           <Property Name="YearHeld" Type="smallint" />
         </EntityType>
-        <EntityType Name="PayPeriod">
-          <Key>
-            <PropertyRef Name="PayPeriodId" />
-          </Key>
-          <Property Name="PayPeriodId" Type="int" Nullable="false" />
-          <Property Name="PayPeriodName" Type="nvarchar" MaxLength="1" Nullable="false" />
-        </EntityType>
-        <EntityType Name="PayRate">
-          <Key>
-            <PropertyRef Name="PayRateId" />
-          </Key>
-          <Property Name="PayRateId" Type="int" Nullable="false" />
-          <Property Name="PayRateName" Type="nvarchar" MaxLength="10" Nullable="false" />
-        </EntityType>
         <EntityType Name="Position">
           <Key>
             <PropertyRef Name="PositionId" />
           </Key>
-          <Property Name="PositionId" Type="int" Nullable="false" />
-          <Property Name="PositionName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="PositionDescription" Type="nvarchar(max)" />
+          <Property Name="PositionId" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PositionName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PositionDescription" Type="varchar" MaxLength="1000" />
+          <Property Name="PayPeriod" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="PayRate" Type="decimal" Precision="10" Scale="2" Nullable="false" />
         </EntityType>
         <EntityType Name="RaceKitOption">
           <Key>
@@ -144,9 +131,10 @@
           </Key>
           <Property Name="RunnerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Gender" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Gender" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="DateOfBirth" Type="datetime" />
           <Property Name="CountryCode" Type="nchar" MaxLength="3" Nullable="false" />
+          <Property Name="Photo" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Sponsorship">
           <Key>
@@ -167,6 +155,16 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
+        <EntityType Name="Timesheet">
+          <Key>
+            <PropertyRef Name="TimesheetId" />
+          </Key>
+          <Property Name="TimesheetId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeId" Type="int" Nullable="false" />
+          <Property Name="StartDateTime" Type="datetime" />
+          <Property Name="EndDateTime" Type="datetime" />
+          <Property Name="PayAmount" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Email" />
@@ -185,7 +183,7 @@
           <Property Name="FirstName" Type="nvarchar" MaxLength="80" />
           <Property Name="LastName" Type="nvarchar" MaxLength="80" />
           <Property Name="CountryCode" Type="nchar" MaxLength="3" Nullable="false" />
-          <Property Name="Gender" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Gender" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <Association Name="FK__Event__EventType__49C3F6B7">
           <End Role="EventType" Type="Self.EventType" Multiplicity="1" />
@@ -380,7 +378,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Employee_Gender">
-          <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
+          <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
           <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Gender">
@@ -391,32 +389,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Employee_PayPeriod">
-          <End Role="PayPeriod" Type="Self.PayPeriod" Multiplicity="0..1" />
-          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PayPeriod">
-              <PropertyRef Name="PayPeriodId" />
-            </Principal>
-            <Dependent Role="Employee">
-              <PropertyRef Name="EmployeePayPeriodId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Employee_PayRate">
-          <End Role="PayRate" Type="Self.PayRate" Multiplicity="0..1" />
-          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PayRate">
-              <PropertyRef Name="PayRateId" />
-            </Principal>
-            <Dependent Role="Employee">
-              <PropertyRef Name="EmployeePayRate" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Employee_Position">
-          <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
+          <End Role="Position" Type="Self.Position" Multiplicity="1" />
           <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Position">
@@ -424,6 +398,18 @@
             </Principal>
             <Dependent Role="Employee">
               <PropertyRef Name="EmployeePositionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Timesheet_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Timesheet" Type="Self.Timesheet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeId" />
+            </Principal>
+            <Dependent Role="Timesheet">
+              <PropertyRef Name="EmployeeId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -435,8 +421,6 @@
           <EntitySet Name="EventType" EntityType="Self.EventType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Marathon" EntityType="Self.Marathon" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PayPeriod" EntityType="Self.PayPeriod" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PayRate" EntityType="Self.PayRate" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RaceKitOption" EntityType="Self.RaceKitOption" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Registration" EntityType="Self.Registration" Schema="dbo" store:Type="Tables" />
@@ -446,6 +430,7 @@
           <EntitySet Name="Runner" EntityType="Self.Runner" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sponsorship" EntityType="Self.Sponsorship" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Timesheet" EntityType="Self.Timesheet" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Volunteer" EntityType="Self.Volunteer" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Event__EventType__49C3F6B7" Association="Self.FK__Event__EventType__49C3F6B7">
@@ -516,17 +501,13 @@
             <End Role="Gender" EntitySet="Gender" />
             <End Role="Employee" EntitySet="Employee" />
           </AssociationSet>
-          <AssociationSet Name="FK_Employee_PayPeriod" Association="Self.FK_Employee_PayPeriod">
-            <End Role="PayPeriod" EntitySet="PayPeriod" />
-            <End Role="Employee" EntitySet="Employee" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Employee_PayRate" Association="Self.FK_Employee_PayRate">
-            <End Role="PayRate" EntitySet="PayRate" />
-            <End Role="Employee" EntitySet="Employee" />
-          </AssociationSet>
           <AssociationSet Name="FK_Employee_Position" Association="Self.FK_Employee_Position">
             <End Role="Position" EntitySet="Position" />
             <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Timesheet_Employee" Association="Self.FK_Timesheet_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Timesheet" EntitySet="Timesheet" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -559,19 +540,17 @@
           <Key>
             <PropertyRef Name="EmployeeId" />
           </Key>
-          <Property Name="EmployeeId" Type="Int32" Nullable="false" />
-          <Property Name="EmployeeFIrstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="EmployeeSecondName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="EmployeeBirthDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="EmployeeGenderName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="EmployeePositionId" Type="Int32" />
-          <Property Name="EmployeePayPeriodId" Type="Int32" />
-          <Property Name="EmployeePayRate" Type="Int32" />
-          <Property Name="EmployeeEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmployeeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeFIrstName" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmployeeSecondName" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmployeeBirthDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EmployeeGenderName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmployeePositionId" Type="Int16" Nullable="false" />
+          <Property Name="EmployeeEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmployeeComments" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Gender" Relationship="Self.FK_Employee_Gender" FromRole="Employee" ToRole="Gender" />
-          <NavigationProperty Name="PayPeriod" Relationship="Self.FK_Employee_PayPeriod" FromRole="Employee" ToRole="PayPeriod" />
-          <NavigationProperty Name="PayRate" Relationship="Self.FK_Employee_PayRate" FromRole="Employee" ToRole="PayRate" />
           <NavigationProperty Name="Position" Relationship="Self.FK_Employee_Position" FromRole="Employee" ToRole="Position" />
+          <NavigationProperty Name="Timesheet" Relationship="Self.FK_Timesheet_Employee" FromRole="Employee" ToRole="Timesheet" />
         </EntityType>
         <EntityType Name="Event">
           <Key>
@@ -600,7 +579,7 @@
           <Key>
             <PropertyRef Name="Gender1" />
           </Key>
-          <Property Name="Gender1" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Gender1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_Gender" FromRole="Gender" ToRole="Employee" />
           <NavigationProperty Name="Runner" Relationship="Self.FK__Runner__Gender__412EB0B6" FromRole="Gender" ToRole="Runner" />
           <NavigationProperty Name="Volunteer" Relationship="Self.FK__Volunteer__Gende__4316F928" FromRole="Gender" ToRole="Volunteer" />
@@ -617,29 +596,15 @@
           <NavigationProperty Name="Country" Relationship="Self.FK__Marathon__Countr__4D94879B" FromRole="Marathon" ToRole="Country" />
           <NavigationProperty Name="Event" Relationship="Self.FK__Event__MarathonI__4AB81AF0" FromRole="Marathon" ToRole="Event" />
         </EntityType>
-        <EntityType Name="PayPeriod">
-          <Key>
-            <PropertyRef Name="PayPeriodId" />
-          </Key>
-          <Property Name="PayPeriodId" Type="Int32" Nullable="false" />
-          <Property Name="PayPeriodName" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_PayPeriod" FromRole="PayPeriod" ToRole="Employee" />
-        </EntityType>
-        <EntityType Name="PayRate">
-          <Key>
-            <PropertyRef Name="PayRateId" />
-          </Key>
-          <Property Name="PayRateId" Type="Int32" Nullable="false" />
-          <Property Name="PayRateName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_PayRate" FromRole="PayRate" ToRole="Employee" />
-        </EntityType>
         <EntityType Name="Position">
           <Key>
             <PropertyRef Name="PositionId" />
           </Key>
-          <Property Name="PositionId" Type="Int32" Nullable="false" />
-          <Property Name="PositionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="PositionDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PositionId" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PositionName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PositionDescription" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="PayPeriod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PayRate" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_Position" FromRole="Position" ToRole="Employee" />
         </EntityType>
         <EntityType Name="RaceKitOption">
@@ -704,9 +669,10 @@
           </Key>
           <Property Name="RunnerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
           <Property Name="CountryCode" Type="String" MaxLength="3" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Country" Relationship="Self.FK__Runner__CountryC__4222D4EF" FromRole="Runner" ToRole="Country" />
           <NavigationProperty Name="Gender1" Relationship="Self.FK__Runner__Gender__412EB0B6" FromRole="Runner" ToRole="Gender" />
           <NavigationProperty Name="Registration" Relationship="Self.FK__Registrat__Runne__45F365D3" FromRole="Runner" ToRole="Registration" />
@@ -732,6 +698,17 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
+        <EntityType Name="Timesheet">
+          <Key>
+            <PropertyRef Name="TimesheetId" />
+          </Key>
+          <Property Name="TimesheetId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+          <Property Name="StartDateTime" Type="DateTime" Precision="3" />
+          <Property Name="EndDateTime" Type="DateTime" Precision="3" />
+          <Property Name="PayAmount" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Timesheet_Employee" FromRole="Timesheet" ToRole="Employee" />
+        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Email" />
@@ -752,7 +729,7 @@
           <Property Name="FirstName" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
           <Property Name="LastName" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
           <Property Name="CountryCode" Type="String" MaxLength="3" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Country" Relationship="Self.FK__Volunteer__Count__440B1D61" FromRole="Volunteer" ToRole="Country" />
           <NavigationProperty Name="Gender1" Relationship="Self.FK__Volunteer__Gende__4316F928" FromRole="Volunteer" ToRole="Gender" />
         </EntityType>
@@ -805,7 +782,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Employee_Gender">
-          <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
+          <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
           <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Gender">
@@ -816,32 +793,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Employee_PayPeriod">
-          <End Role="PayPeriod" Type="Self.PayPeriod" Multiplicity="0..1" />
-          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PayPeriod">
-              <PropertyRef Name="PayPeriodId" />
-            </Principal>
-            <Dependent Role="Employee">
-              <PropertyRef Name="EmployeePayPeriodId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Employee_PayRate">
-          <End Role="PayRate" Type="Self.PayRate" Multiplicity="0..1" />
-          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PayRate">
-              <PropertyRef Name="PayRateId" />
-            </Principal>
-            <Dependent Role="Employee">
-              <PropertyRef Name="EmployeePayRate" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Employee_Position">
-          <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
+          <End Role="Position" Type="Self.Position" Multiplicity="1" />
           <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Position">
@@ -849,6 +802,18 @@
             </Principal>
             <Dependent Role="Employee">
               <PropertyRef Name="EmployeePositionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Timesheet_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Timesheet" Type="Self.Timesheet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeId" />
+            </Principal>
+            <Dependent Role="Timesheet">
+              <PropertyRef Name="EmployeeId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1004,8 +969,6 @@
           <EntitySet Name="EventType" EntityType="Self.EventType" />
           <EntitySet Name="Gender" EntityType="Self.Gender" />
           <EntitySet Name="Marathon" EntityType="Self.Marathon" />
-          <EntitySet Name="PayPeriod" EntityType="Self.PayPeriod" />
-          <EntitySet Name="PayRate" EntityType="Self.PayRate" />
           <EntitySet Name="Position" EntityType="Self.Position" />
           <EntitySet Name="RaceKitOption" EntityType="Self.RaceKitOption" />
           <EntitySet Name="Registration" EntityType="Self.Registration" />
@@ -1015,6 +978,7 @@
           <EntitySet Name="Runner" EntityType="Self.Runner" />
           <EntitySet Name="Sponsorship" EntityType="Self.Sponsorship" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Timesheet" EntityType="Self.Timesheet" />
           <EntitySet Name="User" EntityType="Self.User" />
           <EntitySet Name="Volunteer" EntityType="Self.Volunteer" />
           <AssociationSet Name="FK__Registrat__Chari__48CFD27E" Association="Self.FK__Registrat__Chari__48CFD27E">
@@ -1037,17 +1001,13 @@
             <End Role="Gender" EntitySet="Gender" />
             <End Role="Employee" EntitySet="Employee" />
           </AssociationSet>
-          <AssociationSet Name="FK_Employee_PayPeriod" Association="Self.FK_Employee_PayPeriod">
-            <End Role="PayPeriod" EntitySet="PayPeriod" />
-            <End Role="Employee" EntitySet="Employee" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Employee_PayRate" Association="Self.FK_Employee_PayRate">
-            <End Role="PayRate" EntitySet="PayRate" />
-            <End Role="Employee" EntitySet="Employee" />
-          </AssociationSet>
           <AssociationSet Name="FK_Employee_Position" Association="Self.FK_Employee_Position">
             <End Role="Position" EntitySet="Position" />
             <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Timesheet_Employee" Association="Self.FK_Timesheet_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Timesheet" EntitySet="Timesheet" />
           </AssociationSet>
           <AssociationSet Name="FK__Event__EventType__49C3F6B7" Association="Self.FK__Event__EventType__49C3F6B7">
             <End Role="EventType" EntitySet="EventType" />
@@ -1132,9 +1092,8 @@
                 <ScalarProperty Name="EmployeeBirthDate" ColumnName="EmployeeBirthDate" />
                 <ScalarProperty Name="EmployeeGenderName" ColumnName="EmployeeGenderName" />
                 <ScalarProperty Name="EmployeePositionId" ColumnName="EmployeePositionId" />
-                <ScalarProperty Name="EmployeePayPeriodId" ColumnName="EmployeePayPeriodId" />
-                <ScalarProperty Name="EmployeePayRate" ColumnName="EmployeePayRate" />
                 <ScalarProperty Name="EmployeeEmail" ColumnName="EmployeeEmail" />
+                <ScalarProperty Name="EmployeeComments" ColumnName="EmployeeComments" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1177,28 +1136,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="PayPeriod">
-            <EntityTypeMapping TypeName="MarafonModel.PayPeriod">
-              <MappingFragment StoreEntitySet="PayPeriod">
-                <ScalarProperty Name="PayPeriodId" ColumnName="PayPeriodId" />
-                <ScalarProperty Name="PayPeriodName" ColumnName="PayPeriodName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PayRate">
-            <EntityTypeMapping TypeName="MarafonModel.PayRate">
-              <MappingFragment StoreEntitySet="PayRate">
-                <ScalarProperty Name="PayRateId" ColumnName="PayRateId" />
-                <ScalarProperty Name="PayRateName" ColumnName="PayRateName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Position">
             <EntityTypeMapping TypeName="MarafonModel.Position">
               <MappingFragment StoreEntitySet="Position">
                 <ScalarProperty Name="PositionId" ColumnName="PositionId" />
                 <ScalarProperty Name="PositionName" ColumnName="PositionName" />
                 <ScalarProperty Name="PositionDescription" ColumnName="PositionDescription" />
+                <ScalarProperty Name="PayPeriod" ColumnName="PayPeriod" />
+                <ScalarProperty Name="PayRate" ColumnName="PayRate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1260,6 +1205,7 @@
                 <ScalarProperty Name="Gender" ColumnName="Gender" />
                 <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
                 <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1281,6 +1227,17 @@
                 <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
                 <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Timesheet">
+            <EntityTypeMapping TypeName="MarafonModel.Timesheet">
+              <MappingFragment StoreEntitySet="Timesheet">
+                <ScalarProperty Name="TimesheetId" ColumnName="TimesheetId" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="StartDateTime" ColumnName="StartDateTime" />
+                <ScalarProperty Name="EndDateTime" ColumnName="EndDateTime" />
+                <ScalarProperty Name="PayAmount" ColumnName="PayAmount" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

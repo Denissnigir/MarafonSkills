@@ -15,7 +15,7 @@
         </Grid.RowDefinitions>
 
         <Button FontSize="30" VerticalAlignment="Bottom" Margin="10" Content="Я учавстовал ранее" Height="70" Width="400" Click="Button_Click"/>
-        <Button FontSize="30" Grid.Row="1" VerticalAlignment="Top" Margin="10" Content="Я новый участник" Height="70" Width="400"/>
+        <Button FontSize="30" Grid.Row="1" VerticalAlignment="Top" Margin="10" Content="Я новый участник" Height="70" Width="400" Click="Button_Click_2"/>
         <Button FontSize="24" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10" Content="Login" Height="70" Width="200" Click="Button_Click_1"/>
     </Grid>
 </Page>

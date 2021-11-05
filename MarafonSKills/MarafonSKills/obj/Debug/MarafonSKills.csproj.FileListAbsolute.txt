@@ -42,3 +42,5 @@ C:\Repos\MarafonSkills\MarafonSKills\MarafonSKills\obj\Debug\Windows\Information
 C:\Repos\MarafonSkills\MarafonSKills\MarafonSKills\obj\Debug\Windows\Information.baml
 C:\Repos\MarafonSkills\MarafonSKills\MarafonSKills\obj\Debug\RunnerValidate.g.cs
 C:\Repos\MarafonSkills\MarafonSKills\MarafonSKills\obj\Debug\RunnerValidate.baml
+C:\Repos\MarafonSkills\MarafonSKills\MarafonSKills\obj\Debug\RegisterRunner.g.cs
+C:\Repos\MarafonSkills\MarafonSKills\MarafonSKills\obj\Debug\RegisterRunner.baml

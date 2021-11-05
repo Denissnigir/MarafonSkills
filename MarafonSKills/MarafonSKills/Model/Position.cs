@@ -20,9 +20,11 @@ namespace MarafonSKills.Model
             this.Employee = new HashSet<Employee>();
         }
     
-        public int PositionId { get; set; }
+        public short PositionId { get; set; }
         public string PositionName { get; set; }
         public string PositionDescription { get; set; }
+        public string PayPeriod { get; set; }
+        public decimal PayRate { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Employee> Employee { get; set; }
