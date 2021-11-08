@@ -53,7 +53,7 @@ namespace MarafonSKills
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Regex regex = new Regex(".*@.*[.].*");
+            Regex regex = new Regex("[a-z0-9].*[a-z0-9]@[a-z]+[.][a-z]+");
             if (!string.IsNullOrWhiteSpace(filePath) && !string.IsNullOrWhiteSpace(EmailTB.Text) && !string.IsNullOrWhiteSpace(PasswordTB.Text) && !string.IsNullOrWhiteSpace(RepeatPasswordTB.Text) &&
                 !string.IsNullOrWhiteSpace(NameTB.Text) && !string.IsNullOrWhiteSpace(SurnameTB.Text) && GenderCB.SelectedIndex >= 0 && BirthdateTB.SelectedDate != null && CountryCB.SelectedIndex >= 0)
             {
@@ -66,7 +66,7 @@ namespace MarafonSKills
                     if(PasswordTB.Text == RepeatPasswordTB.Text)
                     {
 
-                        if (regex.IsMatch(EmailTB.Text))
+                        if (Regex.IsMatch(EmailTB.Text, Convert.ToString(regex), RegexOptions.IgnoreCase))
                         {
                             try
                             {
