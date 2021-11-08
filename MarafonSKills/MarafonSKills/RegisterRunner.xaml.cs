@@ -31,25 +31,17 @@ namespace MarafonSKills
         private string fileName = null;
 
         User userData;
-
-        public RegisterRunner()
+        public RegisterRunner(Runner runner = null)
         {
             InitializeComponent();
 
-            userData = new User();
-            MainGrid.DataContext = userData;
-            this.DataContext = userData;
+            if(runner == null) {
+                userData = new User();
+            }
+            else {
+                userData = Context._con.Runner.find(runner.id);
+            }
 
-            GenderCB.ItemsSource = Context._con.Gender.ToList();
-            CountryCB.ItemsSource = Context._con.Country.ToList();
-        }
-
-        public RegisterRunner(Runner runner)
-        {
-            InitializeComponent();
-
-            userData = new User();
-            MainGrid.DataContext = userData;
             this.DataContext = userData;
 
             GenderCB.ItemsSource = Context._con.Gender.ToList();
