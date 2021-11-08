@@ -82,7 +82,7 @@ namespace MarafonSKills
                 Context._con.SaveChanges();
                 
                 int sum = Convert.ToInt32(CharityAmount.Text);
-                curWin.MainFrame.Navigate(new ThanksSponsor(regData, sum, curWin));
+                NavigationService.Navigate(new ThanksSponsor(regData, sum, curWin));
             }
             else
             {

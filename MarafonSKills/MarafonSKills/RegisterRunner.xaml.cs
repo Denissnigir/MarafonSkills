@@ -30,10 +30,27 @@ namespace MarafonSKills
         private string filePath = null;
         private string fileName = null;
 
-        public RegisterRunner(MainMenu mainMenu)
+        User userData;
+
+        public RegisterRunner()
         {
             InitializeComponent();
-            curWin = mainMenu;
+
+            userData = new User();
+            MainGrid.DataContext = userData;
+            this.DataContext = userData;
+
+            GenderCB.ItemsSource = Context._con.Gender.ToList();
+            CountryCB.ItemsSource = Context._con.Country.ToList();
+        }
+
+        public RegisterRunner(Runner runner)
+        {
+            InitializeComponent();
+
+            userData = new User();
+            MainGrid.DataContext = userData;
+            this.DataContext = userData;
 
             GenderCB.ItemsSource = Context._con.Gender.ToList();
             CountryCB.ItemsSource = Context._con.Country.ToList();
@@ -77,7 +94,6 @@ namespace MarafonSKills
 
                             }
 
-                            User userData = new User();
                             userData.Email = EmailTB.Text;
                             userData.Password = PasswordTB.Text;
                             userData.FirstName = NameTB.Text;
