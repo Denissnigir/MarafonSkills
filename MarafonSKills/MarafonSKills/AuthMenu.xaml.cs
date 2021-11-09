@@ -44,7 +44,8 @@ namespace MarafonSKills
             {
                 if(user.RoleId == "R")
                 {
-                    curWin.MainFrame.Navigate(new RunnerMenu(curWin));
+                    var runner = Context._con.Runner.Where(p => p.Email == user.Email).FirstOrDefault();
+                    curWin.MainFrame.Navigate(new RunnerMenu(curWin, runner));
                 } 
                 else if(user.RoleId == "C")
                 {

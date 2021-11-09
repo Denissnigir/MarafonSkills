@@ -29,6 +29,7 @@ namespace MarafonSKills
 
         private string filePath = null;
         private string fileName = null;
+        Runner runner;
 
         User userData;
         public RegisterRunner(Runner runner = null)
@@ -39,10 +40,15 @@ namespace MarafonSKills
                 userData = new User();
             }
             else {
-                userData = Context._con.Runner.find(runner.id);
+                userData = Context._con.User.Find(runner.Email);
+                EmailTB.IsEnabled = false;
+                HeaderText.Text = "Редактирование бегуна";
             }
 
+            this.runner = runner;
+
             this.DataContext = userData;
+
 
             GenderCB.ItemsSource = Context._con.Gender.ToList();
             CountryCB.ItemsSource = Context._con.Country.ToList();
@@ -86,23 +92,29 @@ namespace MarafonSKills
 
                             }
 
-                            userData.Email = EmailTB.Text;
-                            userData.Password = PasswordTB.Text;
-                            userData.FirstName = NameTB.Text;
-                            userData.LastName = SurnameTB.Text;
                             userData.RoleId = "R";
+                            Runner runnerData = new Runner();
+                            if(runner == null)
+                            {
+                                Context._con.User.Add(userData);
+                            }
+                            else
+                            {
+                                runnerData = Context._con.Runner.Find(runner.RunnerId);
+                            }
 
-                            Context._con.User.Add(userData);
                             Context._con.SaveChanges();
 
-                            Runner runnerData = new Runner();
                             runnerData.Email = userData.Email;
                             runnerData.Gender = GenderCB.Text;
                             runnerData.DateOfBirth = (DateTime)BirthdateTB.SelectedDate;
                             runnerData.CountryCode = CountryCB.Text;
                             runnerData.Photo = fileName;
 
-                            Context._con.Runner.Add(runnerData);
+                            if(runner == null)
+                            {
+                                Context._con.Runner.Add(runnerData);
+                            }
                             Context._con.SaveChanges();
                         }
                         else
@@ -123,6 +135,12 @@ namespace MarafonSKills
                 MessageBox.Show("Заполните все поля!!");
             }
             
+        }
+
+        private void EmailTB_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var snd = sender as TextBox;
+            Console.WriteLine($"{snd.Name}; {snd.Text}");
         }
     }
 }
