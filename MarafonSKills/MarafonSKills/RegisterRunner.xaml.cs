@@ -29,10 +29,10 @@ namespace MarafonSKills
 
         private string filePath = null;
         private string fileName = null;
+        
         Runner runner;
-
         User userData;
-        public RegisterRunner(Runner runner = null)
+        public RegisterRunner(Runner runner = null) // То как делается добавление / редактирование в одном окне
         {
             InitializeComponent();
 
@@ -54,7 +54,7 @@ namespace MarafonSKills
             CountryCB.ItemsSource = Context._con.Country.ToList();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e) // Выбор фото
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if ((bool)openFileDialog.ShowDialog())
@@ -85,7 +85,7 @@ namespace MarafonSKills
                         {
                             try
                             {
-                                File.Copy(filePath, $@"..\..\{fileName}");
+                                File.Copy(filePath, $@"..\..\{fileName}"); // Копирование фото
                             }
                             catch
                             {
